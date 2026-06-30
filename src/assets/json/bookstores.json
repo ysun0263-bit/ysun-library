@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "City Library Bookstore",
+    "location": "Melbourne",
+    "availableBooks": ["Pride and Prejudice", "1984", "Animal Farm"]
+  },
+  {
+    "id": 2,
+    "name": "Campus Bookstore",
+    "location": "Clayton",
+    "availableBooks": ["Death on the Nile", "Sense and Sensibility"]
+  },
+  {
+    "id": 3,
+    "name": "Community Bookstore",
+    "location": "Caulfield",
+    "availableBooks": ["Murder on the Orient Express", "1984"]
+  }
+]
