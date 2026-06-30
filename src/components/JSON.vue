@@ -4,6 +4,7 @@
 
     <p>
       Our <code>authors.json</code> contains an array of author objects.
+      Our <code>bookstores.json</code> contains bookstore information.
     </p>
 
     <section>
@@ -109,46 +110,57 @@
     </section>
 
     <section>
-      <h2>Activity 9: Bookstore List</h2>
-      <p>Bookstore names and locations:</p>
+      <h2>Activity 9: Bookstore Overview</h2>
 
-      <ul>
-        <li v-for="store in bookstores" :key="store.id">
-          {{ store.name }} - {{ store.location }}
-        </li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Activity 10: Authors and Their Famous Works</h2>
-
-      <div v-for="author in authors" :key="author.id" class="card">
-        <strong>{{ author.name }}</strong>
-
-        <ul>
-          <li v-for="work in author.famousWorks" :key="work.title">
-            {{ work.title }} ({{ work.year }})
-          </li>
-        </ul>
+      <div class="card">
+        <p><strong>Name:</strong> {{ bookstores.name }}</p>
+        <p><strong>Total stores:</strong> {{ bookstores.totalStores }}</p>
       </div>
     </section>
 
     <section>
-      <h2>Activity 11: Melbourne Bookstores</h2>
+      <h2>Activity 10: Countries</h2>
+      <p>Countries in <code>bookstores.json</code>:</p>
 
       <ul>
-        <li v-for="store in melbourneBookstores" :key="store.id">
-          {{ store.name }} - {{ store.location }}
+        <li v-for="country in bookstoreCountries" :key="country">
+          {{ country }}
         </li>
       </ul>
     </section>
 
     <section>
-      <h2>Activity 12: Library Summary</h2>
+      <h2>Activity 11: Store Types</h2>
+      <p>Physical and online store numbers:</p>
 
-      <p>Total authors: {{ totalAuthors }}</p>
-      <p>Total famous works: {{ totalFamousWorks }}</p>
-      <p>Total bookstores: {{ totalBookstores }}</p>
+      <ul>
+        <li v-for="[type, count] in storeTypeEntries" :key="type">
+          {{ type }}: {{ count }}
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Activity 12: Top Sellers and Opening Hours</h2>
+
+      <h3>Top Sellers</h3>
+      <ul>
+        <li
+          v-for="book in topSellers"
+          :key="book"
+          :class="{ bestseller: book === '1984' }"
+          :title="`Top seller: ${book}`"
+        >
+          {{ book }}
+        </li>
+      </ul>
+
+      <h3>Opening Hours</h3>
+      <ul>
+        <li v-for="[dayType, hours] in openingHourEntries" :key="dayType">
+          {{ dayType }}: {{ hours.open }} - {{ hours.close }}
+        </li>
+      </ul>
     </section>
 
     <section>
@@ -195,15 +207,17 @@ const authorById = computed(() =>
   authors.find((author) => author.id === 1)
 )
 
-const melbourneBookstores = computed(() =>
-  bookstores.filter((store) => store.location === 'Melbourne')
+const bookstoreCountries = computed(() => bookstores.countries ?? [])
+
+const topSellers = computed(() => bookstores.topSellers ?? [])
+
+const storeTypeEntries = computed(() =>
+  Object.entries(bookstores.storeTypes ?? {})
 )
 
-const totalAuthors = computed(() => authors.length)
-
-const totalFamousWorks = computed(() => allFamousWorks.value.length)
-
-const totalBookstores = computed(() => bookstores.length)
+const openingHourEntries = computed(() =>
+  Object.entries(bookstores.openingHours ?? {})
+)
 
 const isGeorgeOrwell = (author) => {
   return author.name === 'George Orwell'
@@ -255,6 +269,11 @@ li {
 .highlight {
   background-color: #e8fff3;
   color: #1b5e20;
+}
+
+.bestseller {
+  background-color: #fff8dc;
+  font-weight: bold;
 }
 
 .message {
