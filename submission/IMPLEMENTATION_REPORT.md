@@ -22,6 +22,7 @@
 - `submission/SUBMISSION_CHECKLIST.md`
 - `submission/IMPLEMENTATION_REPORT.md`
 - `submission/screenshots/01-password-mismatch.png`
+- `submission/screenshots/02-vue-devtools.png`
 - `submission/screenshots/03-home-page.png`
 - `submission/screenshots/04-about-page.png`
 - `submission/screenshots/05-unauthenticated-about-redirect.png`
@@ -110,6 +111,7 @@ No `lint` script exists in `package.json`, so `npm run lint` was not run.
 Generated:
 
 - `01-password-mismatch.png`
+- `02-vue-devtools.png`
 - `03-home-page.png`
 - `04-about-page.png`
 - `05-unauthenticated-about-redirect.png`
@@ -118,14 +120,11 @@ Generated:
 - `08-logout.png`
 - `09-access-denied.png`
 
-Manual still required:
+Vue DevTools evidence:
 
-- `02-vue-devtools.png`
-
-Reason: the in-app browser could not render a populated Vue DevTools Components panel. The attempted DevTools page was blank, so it was deleted rather than submitted as false evidence.
+- `02-vue-devtools.png` shows the running form, Vue DevTools Components panel, `<HomeView>` selected, and `formData` expanded with the current field values.
 
 ## Known Issues or Limitations
 
-- Final PDF was not generated automatically because the Vue DevTools screenshot is incomplete.
 - Vite build emits a bundle-size warning due to PrimeVue, but the build succeeds.
-- Browser automation had intermittent screenshot and selector timeouts; affected screenshots were retried or noted.
+- Browser automation had intermittent screenshot and selector timeouts; affected screenshots were retried or replaced with final verified captures.

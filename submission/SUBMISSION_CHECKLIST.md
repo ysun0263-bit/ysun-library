@@ -27,6 +27,7 @@ Use the following order when assembling the final Moodle PDF:
 The following real browser screenshots were generated in `submission/screenshots/`:
 
 - `01-password-mismatch.png`
+- `02-vue-devtools.png`
 - `03-home-page.png`
 - `04-about-page.png`
 - `05-unauthenticated-about-redirect.png`
@@ -35,21 +36,10 @@ The following real browser screenshots were generated in `submission/screenshots
 - `08-logout.png`
 - `09-access-denied.png`
 
-## Manual Screenshot Still Required
+## Vue DevTools Screenshot
 
-`02-vue-devtools.png` still needs to be captured manually because the in-app browser could not open a populated Vue DevTools panel. Do not use the blank attempted DevTools image.
-
-Manual steps:
-
-1. Run `npm run dev`.
-2. Open `http://127.0.0.1:5173/` in Chrome.
-3. Open Chrome Developer Tools.
-4. Open the Vue tab.
-5. Select or expand `HomeView`.
-6. Expand `formData`.
-7. Make sure `username`, `password`, `confirmPassword`, `gender`, `resident`, `reason`, and `suburb` are visible.
-8. Capture the browser form and Vue DevTools Components panel as `submission/screenshots/02-vue-devtools.png`.
+`02-vue-devtools.png` was captured from the running app with Vue DevTools open, `<HomeView>` selected, and `formData` expanded to show `username`, `password`, `confirmPassword`, `gender`, `resident`, `reason`, and `suburb`.
 
 ## Final PDF Status
 
-The final PDF was not generated automatically because the required Vue DevTools screenshot is incomplete. After capturing `02-vue-devtools.png`, assemble the PDF using the order above.
+All required screenshots are now available in `submission/screenshots/`. Assemble the final Moodle PDF using the order above.
