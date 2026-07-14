@@ -1,7 +1,23 @@
+<template>
+  <div class="app-shell">
+    <BHeader />
+
+    <main class="container py-5">
+      <router-view />
+    </main>
+  </div>
+</template>
+
 <script setup>
-import Form from './components/Form.vue'
+import BHeader from './components/BHeader.vue'
 </script>
 
-<template>
-  <Form />
-</template>
+<style>
+body {
+  background-color: #f6f8fb;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+</style>
