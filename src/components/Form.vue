@@ -128,6 +128,31 @@
             </div>
           </div>
         </div>
+
+        <section class="datatable-section mt-5" v-if="submittedCards.length">
+          <h2 class="h4 mb-3">Submitted User Information</h2>
+          <DataTable
+            :value="submittedCards"
+            stripedRows
+            showGridlines
+            responsiveLayout="scroll"
+            class="p-datatable-sm"
+          >
+            <Column field="username" header="Username" sortable />
+            <Column field="password" header="Password" />
+            <Column header="Australian Resident">
+              <template #body="{ data }">
+                {{ formatResident(data.resident) }}
+              </template>
+            </Column>
+            <Column header="Gender">
+              <template #body="{ data }">
+                {{ formatGender(data.gender) }}
+              </template>
+            </Column>
+            <Column field="reason" header="Reason" />
+          </DataTable>
+        </section>
       </div>
     </div>
   </div>
@@ -135,6 +160,8 @@
 
 <script setup>
 import { ref } from 'vue'
+import DataTable from 'primevue/datatable'
+import Column from 'primevue/column'
 
 const emptyForm = () => ({
   username: '',
@@ -317,5 +344,9 @@ const clearForm = () => {
 
 .list-group-item {
   padding: 10px;
+}
+
+.datatable-section {
+  overflow-x: auto;
 }
 </style>
