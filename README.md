@@ -1,5 +1,13 @@
 # ysun-library
 
+FIT5032 assessed lab repository for Yilian Sun.
+
+- Student name: Yilian Sun
+- Student email: ysun0263@student.monash.edu
+- Current submitted work: Lab Topic 5
+- Lab Topic 4 is identifiable in the `lab4:` commits and Lab 4 report commits.
+- Lab Topic 5 is identifiable in the `Complete FIT5032 Assessed Lab 5`, `Add Lab 5 Vue DevTools screenshot`, and `Add Lab 5 submission report` commits.
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
